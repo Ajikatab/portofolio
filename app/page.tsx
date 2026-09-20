@@ -2,220 +2,158 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-zinc-950 text-zinc-100 overflow-hidden selection:bg-blue-500 selection:text-white">
-      {/* Background Subtle Ambient Glows */}
-      <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-tr from-blue-600/20 via-cyan-500/15 to-emerald-500/10 blur-[120px] rounded-full" />
-      <div className="pointer-events-none absolute top-1/2 -right-40 w-[500px] h-[500px] bg-indigo-600/10 blur-[140px] rounded-full" />
+    <main className="relative min-h-screen bg-[#0a0a0a] text-zinc-100 font-sans overflow-x-hidden selection:bg-white selection:text-black">
+      {/* Background Grid Accent */}
+      <div 
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#1f1f1f_1px,transparent_1px),linear-gradient(to_bottom,#1f1f1f_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)] opacity-30" 
+      />
 
       {/* Navigation Header */}
-      <header className="sticky top-0 z-50 backdrop-blur-md bg-zinc-950/70 border-b border-zinc-800/60">
+      <header className="sticky top-0 z-50 backdrop-blur-md bg-[#0a0a0a]/80 border-b border-zinc-800/40">
         <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-          <a href="#" className="text-xl font-bold tracking-tight bg-gradient-to-r from-blue-400 via-cyan-300 to-emerald-400 bg-clip-text text-transparent">
-            Fahrizi Katab
-          </a>
+          <div className="font-bold text-lg tracking-tight text-white">
+            FK
+          </div>
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
-            <a href="#about" className="hover:text-white transition-colors">Tentang</a>
-            <a href="#skills" className="hover:text-white transition-colors">Keahlian</a>
-            <a href="#projects" className="hover:text-white transition-colors">Proyek</a>
-            <a href="#contact" className="hover:text-white transition-colors">Kontak</a>
+            <a href="#about" className="hover:text-white transition-colors">About</a>
+            <a href="#experience" className="hover:text-white transition-colors">Experience</a>
+            <a href="#product-thinking" className="hover:text-white transition-colors">Product Thinking</a>
+            <a href="#skills" className="hover:text-white transition-colors">Skills</a>
+            <a href="#contact" className="hover:text-white transition-colors">Contact</a>
           </nav>
-          <a
-            href="#contact"
-            className="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-zinc-950 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full hover:shadow-[0_0_20px_rgba(56,189,248,0.4)] transition-all duration-300"
-          >
-            Hubungi Saya
-          </a>
+          <div className="flex items-center gap-2 px-3 py-1 rounded-full border border-zinc-800 text-xs font-semibold text-zinc-400">
+            <span className="text-white">US</span>
+            <span className="text-zinc-600">/</span>
+            <span>EN</span>
+          </div>
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="relative pt-12 pb-24 md:py-28 max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left Column: Bio & Intro */}
-          <div className="lg:col-span-7 flex flex-col items-start gap-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold tracking-wide uppercase">
-              <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
-              Tersedia Untuk Proyek Baru
+      {/* Main Hero Section matching User's exact layout */}
+      <section className="relative min-h-[calc(100vh-80px)] flex flex-col justify-between max-w-6xl mx-auto px-6 pt-12 pb-8">
+        <div className="my-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          {/* Left Side: Circular Photo Container with NEW PHOTO */}
+          <div className="lg:col-span-5 flex justify-center">
+            <div className="relative group">
+              {/* Glow Border Effect */}
+              <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-zinc-700 via-zinc-400 to-zinc-700 opacity-40 blur-md group-hover:opacity-70 transition duration-500" />
+              
+              {/* Circle Photo Container */}
+              <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-zinc-800 bg-zinc-900 shadow-2xl">
+                <Image
+                  src="/profile.jpeg"
+                  alt="Faturohman Fahrizi Katab"
+                  fill
+                  sizes="(max-width: 768px) 288px, (max-width: 1024px) 320px, 384px"
+                  priority
+                  className="object-cover object-top filter brightness-105 group-hover:scale-105 transition-transform duration-500 ease-out"
+                />
+              </div>
             </div>
+          </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15]">
-              Halo, Saya <br />
-              <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-emerald-400 bg-clip-text text-transparent">
-                Fahrizi Katab
-              </span>
+          {/* Right Side: Headlines, Bio, Buttons */}
+          <div className="lg:col-span-7 flex flex-col items-start text-left gap-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-none">
+              Faturohman <br />
+              <span className="text-zinc-100">Fahrizi Katab</span>
             </h1>
 
-            <p className="text-zinc-400 text-lg sm:text-xl max-w-xl font-normal leading-relaxed">
-              Pengembang Web & Kreator Digital yang berdedikasi membangun pengalaman web modern, cepat, dan responsif dengan desain estetis bernilai tinggi.
+            <p className="text-lg font-semibold text-zinc-300">
+              Quality Assurance · DevOps · Informatics Student
+            </p>
+
+            <p className="text-zinc-400 text-base leading-relaxed max-w-xl font-normal">
+              Informatics student at ITENAS with experience as a Quality Assurance engineer and DevOps, passionate about Product Management, data-driven decision making, and user experience improvement.
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <a
                 href="#projects"
-                className="px-6 py-3.5 rounded-xl font-semibold bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/25 hover:shadow-cyan-500/40 hover:-translate-y-0.5 transition-all duration-300"
+                className="px-8 py-3.5 rounded-full font-medium bg-white text-black hover:bg-zinc-200 transition-all duration-300 shadow-md text-sm"
               >
-                Lihat Portfolio
+                View Projects
               </a>
               <a
-                href="#contact"
-                className="px-6 py-3.5 rounded-xl font-semibold bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white hover:bg-zinc-800 hover:border-zinc-700 transition-all duration-300"
+                href="/resume.pdf"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-medium bg-transparent border border-zinc-700 text-zinc-300 hover:text-white hover:border-zinc-500 transition-all duration-300 text-sm"
               >
-                Diskusi Proyek
+                <span>📥</span> Download CV
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-xl bg-transparent border border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-600 flex items-center justify-center transition-all duration-300"
+                aria-label="LinkedIn Profile"
+              >
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.74a1.45 1.45 0 1 0 0 2.9 1.45 1.45 0 0 0 0-2.9z"/>
+                </svg>
               </a>
             </div>
           </div>
+        </div>
 
-          {/* Right Column: Profile Image Card */}
-          <div className="lg:col-span-5 flex justify-center">
-            <div className="relative group">
-              {/* Outer Glow behind Photo */}
-              <div className="absolute -inset-1.5 bg-gradient-to-r from-blue-500 via-cyan-400 to-emerald-500 rounded-3xl blur-xl opacity-50 group-hover:opacity-80 transition duration-500" />
-
-              {/* Photo Frame Container */}
-              <div className="relative w-[300px] sm:w-[340px] h-[400px] sm:h-[450px] rounded-3xl overflow-hidden bg-zinc-900 border border-zinc-800 shadow-2xl flex items-end">
-                <Image
-                  src="/profile.jpeg"
-                  alt="Fahrizi Katab"
-                  fill
-                  sizes="(max-width: 768px) 300px, 340px"
-                  priority
-                  className="object-cover object-top filter brightness-105 group-hover:scale-105 transition-transform duration-500 ease-out"
-                />
-                
-                {/* Gradient overlay at bottom of photo for text contrast */}
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/20 to-transparent pointer-events-none" />
-
-                {/* Badge Overlay */}
-                <div className="relative z-10 p-6 w-full flex flex-col gap-1 backdrop-blur-sm bg-zinc-950/40 border-t border-zinc-800/40">
-                  <h3 className="text-lg font-bold text-white">Fahrizi Katab</h3>
-                  <p className="text-xs text-cyan-400 font-medium">Web Developer & Creator</p>
-                </div>
-              </div>
-            </div>
-          </div>
+        {/* Scroll Down Indicator */}
+        <div className="w-full flex justify-center pt-8 pb-4">
+          <a href="#about" className="text-xs font-semibold tracking-widest text-zinc-500 hover:text-zinc-300 transition-colors uppercase flex flex-col items-center gap-2">
+            SCROLL DOWN
+            <span className="w-1 h-3 bg-zinc-700 rounded-full animate-bounce" />
+          </a>
         </div>
       </section>
 
       {/* About & Skills Section */}
-      <section id="about" className="py-20 border-t border-zinc-900 bg-zinc-900/40">
+      <section id="about" className="py-24 border-t border-zinc-900 bg-zinc-950/60">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-white">Tentang Saya</h2>
-            <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-cyan-400 mx-auto rounded-full mt-3 mb-4" />
-            <p className="text-zinc-400">
-              Fokus menyajikan solusi digital performa tinggi dengan standar kualitas terbaik.
-            </p>
-          </div>
-
-          <div id="skills" className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-8 rounded-2xl bg-zinc-900/80 border border-zinc-800/80 hover:border-blue-500/50 transition duration-300">
-              <div className="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold text-xl mb-6">
-                ⚡
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-2">Frontend Modern</h3>
-              <p className="text-zinc-400 text-sm leading-relaxed">
-                Pengembangan antarmuka pengguna responsif & interaktif menggunakan React, Next.js, dan Tailwind CSS.
-              </p>
-            </div>
-
-            <div className="p-8 rounded-2xl bg-zinc-900/80 border border-zinc-800/80 hover:border-cyan-500/50 transition duration-300">
-              <div className="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold text-xl mb-6">
-                🎨
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-2">UI/UX Design</h3>
-              <p className="text-zinc-400 text-sm leading-relaxed">
-                Perancangan tata letak modern dengan fokus pada kejelasan visual, kemudahan akses, dan kenyamanan pengguna.
-              </p>
-            </div>
-
-            <div className="p-8 rounded-2xl bg-zinc-900/80 border border-zinc-800/80 hover:border-emerald-500/50 transition duration-300">
-              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold text-xl mb-6">
-                🚀
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-2">Performa & SEO</h3>
-              <p className="text-zinc-400 text-sm leading-relaxed">
-                Optimasi kecepatan web, struktur SEO yang bersih, serta deployment yang aman di cloud seperti Vercel.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Projects Showcase Placeholder */}
-      <section id="projects" className="py-20 max-w-6xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
-          <div>
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-white">Proyek Terbaru</h2>
-            <p className="text-zinc-400 mt-2">Kumpulan karya dan aplikasi web yang telah dibangun.</p>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="group relative rounded-2xl overflow-hidden bg-zinc-900 border border-zinc-800 hover:border-zinc-700 transition duration-300">
-            <div className="h-48 bg-gradient-to-br from-blue-900/40 via-zinc-900 to-zinc-950 p-6 flex items-center justify-center">
-              <span className="text-4xl font-extrabold text-blue-400/80 tracking-widest group-hover:scale-110 transition duration-300">
-                PORTOFOLIO
-              </span>
-            </div>
-            <div className="p-6">
-              <h3 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
-                Personal Web Portfolio
-              </h3>
-              <p className="text-zinc-400 text-sm mt-2">
-                Website portofolio interaktif dengan desain dark mode elegan dan performa Next.js terkini.
-              </p>
-              <div className="flex items-center gap-2 mt-4 text-xs font-semibold text-zinc-500">
-                <span className="px-2.5 py-1 rounded-md bg-zinc-800 text-zinc-300">Next.js</span>
-                <span className="px-2.5 py-1 rounded-md bg-zinc-800 text-zinc-300">Tailwind CSS</span>
-                <span className="px-2.5 py-1 rounded-md bg-zinc-800 text-zinc-300">Vercel</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="group relative rounded-2xl overflow-hidden bg-zinc-900 border border-zinc-800 hover:border-zinc-700 transition duration-300">
-            <div className="h-48 bg-gradient-to-br from-cyan-900/40 via-zinc-900 to-zinc-950 p-6 flex items-center justify-center">
-              <span className="text-4xl font-extrabold text-cyan-400/80 tracking-widest group-hover:scale-110 transition duration-300">
-                WEB APPS
-              </span>
-            </div>
-            <div className="p-6">
-              <h3 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
-                Modern Web Applications
-              </h3>
-              <p className="text-zinc-400 text-sm mt-2">
-                Aplikasi web responsif dan dinamis yang dirancang untuk memberikan solusi digital efisien.
-              </p>
-              <div className="flex items-center gap-2 mt-4 text-xs font-semibold text-zinc-500">
-                <span className="px-2.5 py-1 rounded-md bg-zinc-800 text-zinc-300">React</span>
-                <span className="px-2.5 py-1 rounded-md bg-zinc-800 text-zinc-300">TypeScript</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="py-20 border-t border-zinc-900 bg-zinc-900/30">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-white sm:text-4xl">Mari Bekerja Sama</h2>
-          <p className="text-zinc-400 mt-3 max-w-xl mx-auto">
-            Punya ide proyek menarik atau ingin berdiskusi? Jangan ragu untuk menghubungi saya!
+          <h2 className="text-3xl font-bold tracking-tight text-white mb-6">About Me</h2>
+          <p className="text-zinc-400 text-lg leading-relaxed max-w-3xl mb-12">
+            As an Informatics student at ITENAS, I combine analytical thinking with practical software development skills. My background spans Quality Assurance, DevOps pipelines, and Product Management to build reliable and user-centered digital solutions.
           </p>
 
-          <div className="mt-8 flex justify-center">
-            <a
-              href="mailto:contact@fahrizikatab.com"
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-zinc-950 bg-gradient-to-r from-blue-400 via-cyan-300 to-emerald-400 hover:shadow-[0_0_30px_rgba(56,189,248,0.5)] transition duration-300"
-            >
-              ✉️ Hubungi via Email
-            </a>
+          <div id="skills" className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="p-8 rounded-2xl bg-zinc-900/50 border border-zinc-800 hover:border-zinc-700 transition">
+              <h3 className="text-xl font-bold text-white mb-3">Quality Assurance</h3>
+              <p className="text-zinc-400 text-sm leading-relaxed">
+                Automated & manual testing, bug tracking, test case design, and quality metrics to ensure seamless user experience.
+              </p>
+            </div>
+            <div className="p-8 rounded-2xl bg-zinc-900/50 border border-zinc-800 hover:border-zinc-700 transition">
+              <h3 className="text-xl font-bold text-white mb-3">DevOps & CI/CD</h3>
+              <p className="text-zinc-400 text-sm leading-relaxed">
+                Version control, automated build pipelines, containerization, and cloud deployment on Vercel & modern infrastructure.
+              </p>
+            </div>
+            <div className="p-8 rounded-2xl bg-zinc-900/50 border border-zinc-800 hover:border-zinc-700 transition">
+              <h3 className="text-xl font-bold text-white mb-3">Product Thinking</h3>
+              <p className="text-zinc-400 text-sm leading-relaxed">
+                Data-driven decision making, user research, agile workflow, and feature prioritization for high impact.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="py-24 max-w-6xl mx-auto px-6 border-t border-zinc-900">
+        <h2 className="text-3xl font-bold tracking-tight text-white mb-8">Projects</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="p-8 rounded-2xl bg-zinc-900/50 border border-zinc-800">
+            <h3 className="text-xl font-bold text-white">ITENAS Portfolio</h3>
+            <p className="text-zinc-400 text-sm mt-2">Personal portfolio showcasing QA, DevOps, and web engineering projects.</p>
+          </div>
+          <div className="p-8 rounded-2xl bg-zinc-900/50 border border-zinc-800">
+            <h3 className="text-xl font-bold text-white">QA Automation & DevOps Pipeline</h3>
+            <p className="text-zinc-400 text-sm mt-2">Continuous integration and testing workflow for modern web applications.</p>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-8 border-t border-zinc-900 text-center text-xs text-zinc-500">
-        <p>© {new Date().getFullYear()} Fahrizi Katab. All rights reserved.</p>
+      <footer id="contact" className="py-12 border-t border-zinc-900 text-center text-sm text-zinc-500">
+        <p>© {new Date().getFullYear()} Faturohman Fahrizi Katab. All rights reserved.</p>
       </footer>
     </main>
   );
