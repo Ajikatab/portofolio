@@ -47,7 +47,7 @@ export default function Home() {
                   fill
                   sizes="(max-width: 768px) 288px, (max-width: 1024px) 320px, 384px"
                   priority
-                  className="object-cover object-top filter brightness-105 group-hover:scale-105 transition-transform duration-500 ease-out"
+                  className="object-cover object-center filter brightness-105 group-hover:scale-105 transition-transform duration-500 ease-out"
                 />
               </div>
             </div>
